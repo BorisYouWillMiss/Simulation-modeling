@@ -1,0 +1,11 @@
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\bin\Debug\CurrencyExchangeLab2.exe.config
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\bin\Debug\CurrencyExchangeLab2.exe
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\bin\Debug\CurrencyExchangeLab2.pdb
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.csproj.AssemblyReference.cache
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.Form1.resources
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.Properties.Resources.resources
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.csproj.GenerateResource.cache
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.csproj.CoreCompileInputs.cache
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.exe
+C:\Users\Vadim\source\repos\ImitModel\CurrencyExchangeLab2\obj\Debug\CurrencyExchangeLab2.pdb

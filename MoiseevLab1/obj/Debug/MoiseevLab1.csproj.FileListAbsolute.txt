@@ -1,0 +1,11 @@
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\bin\Debug\MoiseevLab1.exe.config
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\bin\Debug\MoiseevLab1.exe
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\bin\Debug\MoiseevLab1.pdb
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.csproj.AssemblyReference.cache
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.Form1.resources
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.Properties.Resources.resources
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.csproj.GenerateResource.cache
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.csproj.CoreCompileInputs.cache
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.exe
+C:\Users\Vadim\source\repos\ImitModel\MoiseevLab1\obj\Debug\MoiseevLab1.pdb

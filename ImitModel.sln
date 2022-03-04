@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyExchangeLab2", "Cur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementaryCellularAutomaton", "ElementaryCellularAutomaton\ElementaryCellularAutomaton.csproj", "{6DC6A8D7-9877-4BA2-AC50-6CED96E99AA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\GameOfLife.csproj", "{27F30056-4946-4351-AFAF-F2C0D9304A02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6DC6A8D7-9877-4BA2-AC50-6CED96E99AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC6A8D7-9877-4BA2-AC50-6CED96E99AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC6A8D7-9877-4BA2-AC50-6CED96E99AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F30056-4946-4351-AFAF-F2C0D9304A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F30056-4946-4351-AFAF-F2C0D9304A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F30056-4946-4351-AFAF-F2C0D9304A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F30056-4946-4351-AFAF-F2C0D9304A02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

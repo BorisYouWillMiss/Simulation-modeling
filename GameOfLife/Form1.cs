@@ -159,6 +159,8 @@ namespace GameOfLife
             generateField = true;
             // WHICH CELLS ARE WHICH
 
+            int dom = 0;
+
             logs.Clear();
 
             if (generateField)
@@ -169,7 +171,15 @@ namespace GameOfLife
                     {
                         for (int col = 0; col < columns; col++)
                         {
-                            cells[row, col] = random.Next(4);
+                            dom = random.Next(4);
+                            cells[row, col] = dom;
+                            if (cells[row, col] == 2)
+                            {
+                                dom = random.Next(3);
+                                if (dom == 0) cells[row, col] = 0;
+                                else if (dom == 1) cells[row, col] = 1;
+                                else if (dom == 2) cells[row, col] = 3;
+                            }
                             //logs.Text += " " + cells[row, col]; // Debug info
                         }
                     }
@@ -957,7 +967,18 @@ namespace GameOfLife
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            // GAME IS HAPPENING HERE:
+            GameTick();
+        }
+
+        private void buttonTick_Click(object sender, EventArgs e)
+        {
+            GameTick();
+        }
+
+        public void GameTick()
+        {
+            // GAMESTEP event
+            // cells: 0 - water, 1 - forest, 2 - fire;
 
             // Clear neighbours
             for (int i = 0; i < rows; i++)
@@ -1227,13 +1248,22 @@ namespace GameOfLife
                     {
                         rng = random.Next(101) + 1; // 1 - 100
 
-                        if (rng <= cellsFire[row, col] * 10) // [0.. 8] 
+                        if (rng <= cellsFire[row, col] * 15) // [0.. 8] 
                             cells[row, col] = 2;                     // Firecatch (more priority)
                         else
                         {
                             rng = random.Next(101) + 1;
                             if (rng <= cellsWood[row, col] * 20 - 100 - gameForestSurvivability.Value) //
                                 cells[row, col] = 3;                 // Exhaustion (20,40,60)%
+                            else
+                            {
+                                rng = random.Next(101) + 1;
+                                if (rng <= cellsWater[row, col] * 15 - 100)
+                                {
+                                    cells[row, col] = 0;             // Drown (5%, 20%) 7,8
+                                    //logs.Text += "Drown event (" + row + ", " + col + ")\n";
+                                }
+                            }
                         }
 
                     }
@@ -1248,328 +1278,19 @@ namespace GameOfLife
                     {
                         rng = random.Next(101) + 1;
 
-                        if (rng <= cellsWood[row, col] + cellsWater[row, col] * 5 + gameWaterLife.Value)
-                            cells[row, col] = 1;                     // Sprout-Birth
+                        if (rng <= cellsWood[row, col])
+                            cells[row, col] = 1;                     // Sprout  (priority: Sprout > Flood > Birth)
                         else
                         {
                             rng = random.Next(101) + 1;
 
-                            if (rng <= gameFloodChance.Value + cellsWater[row, col] - 1)
-                                cells[row, col] = 0;                 // Flood
-                        }
-
-                    }
-                }
-            }
-
-
-            generateField = true;
-            canvas.Invalidate();
-
-        }
-
-        private void buttonTick_Click(object sender, EventArgs e)
-        {
-            // GAMESTEP event
-            // cells: 0 - water, 1 - forest, 2 - fire;
-
-            // Clear neighbours
-            for (int i = 0; i < rows; i++)
-                for (int j = 0; j < columns; j++)
-                {
-                    cellsFire[i, j] = 0;
-                    cellsWater[i, j] = 0;
-                    cellsWood[i, j] = 0;
-                    cellsWilderness[i, j] = 0;
-                }
-
-            // Get neighbours
-            for (int row = 0; row < rows; row++)
-            {
-                for (int col = 0; col < columns; col++) // Clockwise
-                {
-                    if (row == 0 && col == 0) // Left-upper corner
-                    {
-
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row == 0 && col != 0 && col != columns - 1) // Upper border
-                    {
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row == 0 && col == columns - 1) // Right-upper corner
-                    {
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row != 0 && row != rows-1 && col == columns - 1) // Right border
-                    {
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row == rows-1 && col == columns - 1) // Right-lower corner
-                    {
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row == rows-1 && col != columns - 1 && col != 0) // Lower-border
-                    {
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row == rows - 1 && col == 0) // Left-lower corner
-                    {
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row != rows - 1 && row != 0 && col == 0) // Left border
-                    {
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                    else if (row != 0 && col != 0 && row != rows-1 && col != columns - 1)
-                    {
-                        if (cells[row - 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col + 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col + 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col + 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col + 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row + 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row + 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row + 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row + 1, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row, col - 1] == 3) cellsWilderness[row, col]++;
-
-                        if (cells[row - 1, col - 1] == 0) cellsWater[row, col]++;
-                        else if (cells[row - 1, col - 1] == 1) cellsWood[row, col]++;
-                        else if (cells[row - 1, col - 1] == 2) cellsFire[row, col]++;
-                        else if (cells[row - 1, col - 1] == 3) cellsWilderness[row, col]++;
-                        //
-                    }
-                }
-            }
-
-            // Apply game rules
-
-            int rng = 0;
-
-            for (int row = 0; row < rows; row++)
-            {
-                for (int col = 0; col < columns; col++)
-                {
-                    if (cells[row, col] == 0) // Water
-                    {
-                        rng = random.Next(101) + 1;
-
-                        if (cellsWood[row, col] >= 3)
-                        {
-                            if (rng <= cellsWood[row, col] + gameTreesDrainWater.Value - cellsWater[row, col])
-                                cells[row, col] = 3;
-                        }
-                    }
-                    else if (cells[row, col] == 1) // Woods
-                    {
-                        rng = random.Next(101) + 1; // 1 - 100
-                                           
-                        if (rng <= cellsFire[row, col]*10) // [0.. 8] 
-                            cells[row, col] = 2;                     // Firecatch (more priority)
-                        else
-                        {
-                            rng = random.Next(101) + 1;
-                            if (rng <= cellsWood[row, col]*20 - 100 - gameForestSurvivability.Value) //
-                                cells[row, col] = 3;                 // Exhaustion (20,40,60)%
-                        }
-                        
-                    }
-                    else if (cells[row,col] == 2) // Fire
-                    {
-                        rng = random.Next(101) + 1;
-                                                                       
-                        if (rng <= gameFireFades.Value + cellsFire[row, col] * 4 + cellsWater[row, col] * 3 - cellsWood[row, col])
-                            cells[row, col] = 3;                     // Fade
-                    }
-                    else if (cells[row, col] == 3) // Wilderness
-                    {
-                        rng = random.Next(101) + 1;
-
-                        if (rng <= cellsWood[row, col] + cellsWater[row, col] * 5 + gameWaterLife.Value)
-                            cells[row, col] = 1;                     // Sprout-Birth
-                        else
-                        {
-                            rng = random.Next(101) + 1;
-
-                            if (rng <= gameFloodChance.Value + cellsWater[row, col] - 1)
-                                cells[row, col] = 0;                 // Flood
+                            if (cellsWater[row, col] != 0)
+                            {
+                                if (rng <= gameFloodChance.Value + cellsWater[row, col] - 1)
+                                    cells[row, col] = 0;             // Flood
+                                else if (rng <= cellsWater[row, col] * 3 + gameWaterLife.Value)
+                                    cells[row, col] = 1;             // Birth
+                            }
                         }
 
                     }
@@ -1593,12 +1314,13 @@ namespace GameOfLife
 
             //  Fire has (fireN*5 + waterN*4 - woodN)% chance to go out ("fade" scenario)
             //  If wilderness has water neighbour and little trees it can turn into water ("flood" scenario)
-            
+            //  Forest can drown if too much water around ("flood scenario")
+
             //  Number of rules"
-            //  Forest: 2 (exhaustion, firecatch)       // DONE
-            //  Water: 1  (drought)                     // DONE
-            //  Fire: 1   (fade)                        // DONE
-            //  Wilderness: 2 (sprout-birth, flood)     // DONE
+            //  Forest: 3 (exhaustion, firecatch, drown)    // DONE
+            //  Water: 1  (drought)                         // DONE
+            //  Fire: 1   (fade)                            // DONE
+            //  Wilderness: 2 (sprout-birth, flood)         // DONE
 
             //  V3.0 Black soil - in progress...
             //  Water flows into valleys?

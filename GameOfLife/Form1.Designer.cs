@@ -482,6 +482,11 @@
             this.gameForestSurvivability.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gameForestSurvivability.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gameForestSurvivability.Location = new System.Drawing.Point(141, 44);
+            this.gameForestSurvivability.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             this.gameForestSurvivability.Minimum = new decimal(new int[] {
             100,
             0,
@@ -490,6 +495,11 @@
             this.gameForestSurvivability.Name = "gameForestSurvivability";
             this.gameForestSurvivability.Size = new System.Drawing.Size(62, 32);
             this.gameForestSurvivability.TabIndex = 31;
+            this.gameForestSurvivability.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             // 
             // label9
             // 
@@ -514,6 +524,11 @@
             this.gameWaterLife.Name = "gameWaterLife";
             this.gameWaterLife.Size = new System.Drawing.Size(62, 32);
             this.gameWaterLife.TabIndex = 29;
+            this.gameWaterLife.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            -2147483648});
             // 
             // label8
             // 

@@ -1,0 +1,11 @@
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\bin\Release\GameOfLife.exe.config
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\bin\Release\GameOfLife.exe
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\bin\Release\GameOfLife.pdb
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.csproj.AssemblyReference.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.Form1.resources
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.Properties.Resources.resources
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.csproj.GenerateResource.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.csproj.CoreCompileInputs.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.exe
+C:\Users\Vadim\source\repos\Simulation-modeling\GameOfLife\obj\Release\GameOfLife.pdb

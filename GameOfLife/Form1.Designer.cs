@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.canvas = new System.Windows.Forms.PictureBox();
             this.panelSettings = new System.Windows.Forms.Panel();
@@ -1043,6 +1044,7 @@
             this.Controls.Add(this.panelPlay);
             this.Controls.Add(this.panelSettings);
             this.Controls.Add(this.canvas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(750, 390);
             this.Name = "Form1";
             this.Text = "Game of life - Balanscopy";

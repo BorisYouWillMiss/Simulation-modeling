@@ -1,0 +1,11 @@
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\bin\Release\AutomaticParkingSystem.exe.config
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\bin\Release\AutomaticParkingSystem.exe
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\bin\Release\AutomaticParkingSystem.pdb
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.csproj.AssemblyReference.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.csproj.SuggestedBindingRedirects.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.Form1.resources
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.Properties.Resources.resources
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.csproj.GenerateResource.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.csproj.CoreCompileInputs.cache
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.exe
+C:\Users\Vadim\source\repos\Simulation-modeling\AutomaticParkingSystem\obj\Release\AutomaticParkingSystem.pdb

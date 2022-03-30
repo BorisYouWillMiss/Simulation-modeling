@@ -53,15 +53,18 @@
             this.labelMoney = new System.Windows.Forms.Label();
             this.labelSalary = new System.Windows.Forms.Label();
             this.labelParkingPlaces = new System.Windows.Forms.Label();
+            this.labelIntersect = new System.Windows.Forms.Label();
             this.EndButton = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Init = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.labelPrice = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-=======
             this.labelExpenses = new System.Windows.Forms.Label();
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
+            this.labelClients = new System.Windows.Forms.Label();
+            this.labelIncome = new System.Windows.Forms.Label();
+            this.labelVFee = new System.Windows.Forms.Label();
+            this.labelViolations = new System.Windows.Forms.Label();
+            this.labelWorkers = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarLC)).BeginInit();
@@ -86,6 +89,36 @@
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = false;
             this.Start.Click += new System.EventHandler(this.Start_Click);
+            // 
+            // labelIncome
+            // 
+            this.labelIncome.AutoSize = true;
+            this.labelIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelIncome.Location = new System.Drawing.Point(388, 21);
+            this.labelIncome.Name = "labelIncome";
+            this.labelIncome.Size = new System.Drawing.Size(65, 18);
+            this.labelIncome.TabIndex = 22;
+            this.labelIncome.Text = "Income: ";
+            // 
+            // labelClients
+            // 
+            this.labelClients.AutoSize = true;
+            this.labelClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelClients.Location = new System.Drawing.Point(533, 3);
+            this.labelClients.Name = "labelClients";
+            this.labelClients.Size = new System.Drawing.Size(61, 18);
+            this.labelClients.TabIndex = 23;
+            this.labelClients.Text = "Clients: ";
+            // 
+            // labelVFee
+            // 
+            this.labelVFee.AutoSize = true;
+            this.labelVFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelVFee.Location = new System.Drawing.Point(388, 39);
+            this.labelVFee.Name = "labelVFee";
+            this.labelVFee.Size = new System.Drawing.Size(103, 18);
+            this.labelVFee.TabIndex = 21;
+            this.labelVFee.Text = "Violators Fee: ";
             // 
             // Step
             // 
@@ -148,6 +181,16 @@
             this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "Bank";
+            // 
+            // labelViolations
+            // 
+            this.labelViolations.AutoSize = true;
+            this.labelViolations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelViolations.Location = new System.Drawing.Point(533, 39);
+            this.labelViolations.Name = "labelViolations";
+            this.labelViolations.Size = new System.Drawing.Size(74, 18);
+            this.labelViolations.TabIndex = 20;
+            this.labelViolations.Text = "Violators: ";
             // 
             // labelLC
             // 
@@ -281,10 +324,7 @@
             // 
             // panelInfo
             // 
-<<<<<<< HEAD
             this.panelInfo.Controls.Add(this.labelPrice);
-=======
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
             this.panelInfo.Controls.Add(this.labelExpenses);
             this.panelInfo.Controls.Add(this.labelClients);
             this.panelInfo.Controls.Add(this.labelIncome);
@@ -302,7 +342,6 @@
             this.panelInfo.TabIndex = 4;
             this.panelInfo.Visible = false;
             // 
-<<<<<<< HEAD
             // labelExpenses
             // 
             this.labelExpenses.AutoSize = true;
@@ -312,64 +351,7 @@
             this.labelExpenses.Size = new System.Drawing.Size(77, 18);
             this.labelExpenses.TabIndex = 24;
             this.labelExpenses.Text = "Expenses:";
-            // 
-=======
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            // labelClients
-            // 
-            this.labelClients.AutoSize = true;
-            this.labelClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelClients.Location = new System.Drawing.Point(533, 3);
-            this.labelClients.Name = "labelClients";
-<<<<<<< HEAD
-            this.labelClients.Size = new System.Drawing.Size(61, 18);
-=======
-            this.labelClients.Size = new System.Drawing.Size(50, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            this.labelClients.TabIndex = 23;
-            this.labelClients.Text = "Clients: ";
-            // 
-            // labelIncome
-            // 
-            this.labelIncome.AutoSize = true;
-            this.labelIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelIncome.Location = new System.Drawing.Point(388, 21);
-            this.labelIncome.Name = "labelIncome";
-<<<<<<< HEAD
-            this.labelIncome.Size = new System.Drawing.Size(65, 18);
-=======
-            this.labelIncome.Size = new System.Drawing.Size(54, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            this.labelIncome.TabIndex = 22;
-            this.labelIncome.Text = "Income: ";
-            // 
-            // labelVFee
-            // 
-            this.labelVFee.AutoSize = true;
-            this.labelVFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelVFee.Location = new System.Drawing.Point(388, 39);
-            this.labelVFee.Name = "labelVFee";
-<<<<<<< HEAD
-            this.labelVFee.Size = new System.Drawing.Size(103, 18);
-=======
-            this.labelVFee.Size = new System.Drawing.Size(84, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            this.labelVFee.TabIndex = 21;
-            this.labelVFee.Text = "Violators Fee: ";
-            // 
-            // labelViolations
-            // 
-            this.labelViolations.AutoSize = true;
-            this.labelViolations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelViolations.Location = new System.Drawing.Point(533, 39);
-            this.labelViolations.Name = "labelViolations";
-<<<<<<< HEAD
-            this.labelViolations.Size = new System.Drawing.Size(74, 18);
-=======
-            this.labelViolations.Size = new System.Drawing.Size(60, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            this.labelViolations.TabIndex = 20;
-            this.labelViolations.Text = "Violators: ";
+            
             // 
             // labelIntersect
             // 
@@ -377,11 +359,9 @@
             this.labelIntersect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelIntersect.Location = new System.Drawing.Point(533, 21);
             this.labelIntersect.Name = "labelIntersect";
-<<<<<<< HEAD
+
             this.labelIntersect.Size = new System.Drawing.Size(72, 18);
-=======
-            this.labelIntersect.Size = new System.Drawing.Size(59, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
+
             this.labelIntersect.TabIndex = 19;
             this.labelIntersect.Text = "Intersect: ";
             // 
@@ -391,11 +371,7 @@
             this.labelWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelWorkers.Location = new System.Drawing.Point(195, 21);
             this.labelWorkers.Name = "labelWorkers";
-<<<<<<< HEAD
             this.labelWorkers.Size = new System.Drawing.Size(70, 18);
-=======
-            this.labelWorkers.Size = new System.Drawing.Size(55, 15);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
             this.labelWorkers.TabIndex = 18;
             this.labelWorkers.Text = "Workers:";
             // 
@@ -445,21 +421,13 @@
             // 
             // chart1
             // 
-<<<<<<< HEAD
             chartArea11.AxisX.Minimum = 0D;
             chartArea11.BorderWidth = 3;
             chartArea11.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea11);
             legend11.Name = "Legend1";
             this.chart1.Legends.Add(legend11);
-=======
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.BorderWidth = 3;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
+
             this.chart1.Location = new System.Drawing.Point(230, 72);
             this.chart1.Name = "chart1";
             series21.BorderWidth = 3;
@@ -492,7 +460,6 @@
             this.Init.UseVisualStyleBackColor = false;
             this.Init.Click += new System.EventHandler(this.Init_Click);
             // 
-<<<<<<< HEAD
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
@@ -507,7 +474,6 @@
             // 
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-=======
             // labelExpenses
             // 
             this.labelExpenses.AutoSize = true;
@@ -516,8 +482,7 @@
             this.labelExpenses.Name = "labelExpenses";
             this.labelExpenses.Size = new System.Drawing.Size(64, 15);
             this.labelExpenses.TabIndex = 24;
-            this.labelExpenses.Text = "Expenses:";
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
+            this.labelExpenses.Text = "Expenses: ";
             // 
             // Form1
             // 
@@ -578,11 +543,9 @@
         private System.Windows.Forms.Label labelIncome;
         private System.Windows.Forms.Label labelClients;
         private System.Windows.Forms.Label labelExpenses;
-<<<<<<< HEAD
         private System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.Timer timer1;
-=======
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
+
     }
 }
 

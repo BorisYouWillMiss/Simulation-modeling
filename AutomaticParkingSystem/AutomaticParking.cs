@@ -13,20 +13,13 @@ public class AutomaticParking
         for (int i = 0; i < places.Length; i++)
             places[i] = new ParkingPlace();
         freePlaces += times;
-        rent = 10000 * places.Length;
+        rent = (15000 * places.Length);
     }
 
-    public void HireHunt(int Salary)
+    public void WorkerHire()
     {
-        Random random = new Random();
-        for (int i = 0; i < freePlaces; i++)
-        {
-            if ((random.Next(100) + 1) > (125 - (Salary / 500)))
-            {
-                workers++;
-                freePlaces--;
-            }
-        }
+        workers++;
+        freePlaces--;
     }
 
     public void WorkerLeft()
@@ -43,5 +36,10 @@ public class AutomaticParking
         workers = 2; // Minimum Workers, 5/1 + 1
         rent = 10000 * places.Length;
         freePlaces = 0;
+    }
+
+    public int GetFreeWorkerPlaces()
+    {
+        return freePlaces;
     }
 }

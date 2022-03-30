@@ -50,16 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
             this.panelInfo = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-            this.labelExpenses = new System.Windows.Forms.Label();
-=======
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
-            this.labelClients = new System.Windows.Forms.Label();
-            this.labelIncome = new System.Windows.Forms.Label();
-            this.labelVFee = new System.Windows.Forms.Label();
-            this.labelViolations = new System.Windows.Forms.Label();
-            this.labelIntersect = new System.Windows.Forms.Label();
-            this.labelWorkers = new System.Windows.Forms.Label();
             this.labelMoney = new System.Windows.Forms.Label();
             this.labelSalary = new System.Windows.Forms.Label();
             this.labelParkingPlaces = new System.Windows.Forms.Label();

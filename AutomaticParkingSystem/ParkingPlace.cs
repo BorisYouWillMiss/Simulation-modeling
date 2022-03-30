@@ -14,11 +14,7 @@ public class ParkingPlace
 
         for (int i = 0; (i < clients) && (hours > 0); i++)
         {
-<<<<<<< HEAD
             if (random.Next(100)+1 > i*15) { // Client rough intersection chance
-=======
-            if (random.Next(100)+1 > i*10) { // Client rough intersection chance
->>>>>>> 5dea678878af796954b4dd8e3df3a19a7afa23ea
                 //Add 24 hours validation
                 int clientHours = (random.Next(12) + 1);
                 if (random.Next(100) + 1 > VP)

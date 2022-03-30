@@ -119,14 +119,6 @@ namespace AutomaticParkingSystem
                 }
 
             // Проверка найма
-            for (int i = 0; i < automaticParking.GetFreeWorkerPlaces(); i++)
-            {
-                float chances = (salary / originalSalary) * 50f;
-                chances = (chances > 65f) ? 65f : chances;
-                if (random.Next(101) <= Math.Floor(chances))
-                    automaticParking.WorkerHire();
-            }
-<<<<<<< HEAD
 
             // Проверка на расширение (demand + bank)
             float mediumClientsOnSpot = totalClients / automaticParking.places.Length;

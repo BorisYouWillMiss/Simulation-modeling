@@ -29,6 +29,12 @@ public class AutomaticParking
         }
     }
 
+    public void WorkerHire()
+    {
+        workers++;
+        freePlaces--;
+    }
+
     public void WorkerLeft()
     {
         workers--;
@@ -43,5 +49,10 @@ public class AutomaticParking
         workers = 2; // Minimum Workers, 5/1 + 1
         rent = 10000 * places.Length;
         freePlaces = 0;
+    }
+
+    public int GetFreeWorkerPlaces()
+    {
+        return freePlaces;
     }
 }

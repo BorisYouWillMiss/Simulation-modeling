@@ -11,6 +11,8 @@ namespace AutomaticParkingSystem
             InitializeComponent();
         }
 
+        
+
         // Данные на ввод
         int averagePrice = 0;     // Средняя цена в городе за час
         int fineFee = 0;          // Размер штрафа
@@ -21,6 +23,7 @@ namespace AutomaticParkingSystem
         int hourPrice = 0;
         int demand = 0;
         int salary = 0;
+        int originalSalary = 0;
 
         // Global Economics
         int income = 0;
@@ -56,11 +59,11 @@ namespace AutomaticParkingSystem
 
             // Simulation logic:
 
-            // Найм 
-            //
-            // Проверка на расширение (demand + bank)
-            //
-            // Перерасчет цены в час + (изменение спроса(demand))
+            // Клиенты паркуются (доход) 1
+            // Проверка увольнения 2
+            // Проверка найма 3
+            // Проверка на расширение (demand + bank) 4
+            // Перерасчет цены в час + (изменение спроса(demand)) 5
             // Перерасчет зарплат
             // 
             // Выплата зарплат
@@ -76,16 +79,18 @@ namespace AutomaticParkingSystem
             curday++;
 
             // Клиенты паркуются
-            Random random = new Random();
+            Random random = new Random(Guid.NewGuid().GetHashCode());
             int revenue = 0;
             int violationRevenue = 0;
             int violators = 0;
             int intersectors = 0;
             int[] CIV = new int[4];
             int clients = 0;
+            int totalClients = 0;
             for (int i = 0; i < automaticParking.places.Length; i++)
             {
                 clients = demand / ((random.Next(30) + 50) / automaticParking.places.Length); // Clients per place
+                totalClients += clients;
                 CIV = automaticParking.places[i].SimulateDay(hourPrice, fineFee, violationPercent, clients);
                 revenue += CIV[0];
                 intersectors += CIV[1];
@@ -96,19 +101,36 @@ namespace AutomaticParkingSystem
 
             // Проверка увольнения
             for (int i = 0; i < automaticParking.workers; i++)
-                if (random.Next(100) + 1 <= leaveChance)
+                if (random.Next(101) <= leaveChance)
                 {
                     automaticParking.WorkerLeft();
                     expenses += (curday % 30) * (salary / 30) + 5000;
                 }
 
             // Проверка найма
+            for (int i = 0; i < automaticParking.GetFreeWorkerPlaces(); i++)
+            {
+                float chances = (salary / originalSalary) * 50f;
+                chances = (chances > 65f) ? 65f : chances;
+                if (random.Next(101) <= Math.Floor(chances))
+                    automaticParking.WorkerHire();
+            }
+
+            // Проверка на расширение (demand + bank)
+            float mediumClientsOnSpot = totalClients / automaticParking.places.Length;
+            if(mediumClientsOnSpot >= 5)
+                if(random.Next(101) <= ((mediumClientsOnSpot-1)*100))
+                    automaticParking.Expand(1);
+
+            // Перерасчет цены в час + (изменение спроса(demand))
 
 
-
+            expenses += (curday % 30 == 0) ? salary * automaticParking.workers : 0;
+            expenses += (curday % 30 == 0) ? automaticParking.rent : 0;
             bank += (income - expenses);
             labelParkingPlaces.Text = "Parking places: " + automaticParking.places.Length;
             labelSalary.Text = "Salary: " + salary.ToString();
+            labelExpenses.Text = "Expenses: " + expenses.ToString();
             labelMoney.Text = "Bank: " + bank.ToString();
             labelWorkers.Text = "Workers: " + automaticParking.workers;
 
@@ -116,11 +138,11 @@ namespace AutomaticParkingSystem
             labelViolations.Text = "Violation: " + violators;
             labelVFee.Text = "Violators Fee: " + violationRevenue;
             labelIncome.Text = "Income: " + income;
-            labelClients.Text = "Clients: " + clients;
+            labelClients.Text = "Clients: " + totalClients;
 
-            chart1.Series[0].Points.AddXY(0, automaticParking.workers);
+            chart1.Series[0].Points.AddXY(curday, automaticParking.workers);
 
-            chart1.Series[1].Points.AddXY(0, income);
+            chart1.Series[1].Points.AddXY(curday, income);
 
 
             //
@@ -144,6 +166,7 @@ namespace AutomaticParkingSystem
             hourPrice = averagePrice;
             demand = 20;
             salary = 15000;
+            originalSalary = salary;
             adrent = 10000; // Extra expenses
             curday = 0;
             //
@@ -153,14 +176,15 @@ namespace AutomaticParkingSystem
             // Вывести начальные данные:
             labelParkingPlaces.Text = "Parking places: " + automaticParking.places.Length;
             labelSalary.Text = "Salary: " + salary.ToString();
+            labelExpenses.Text = "Expenses: " + expenses.ToString();
             labelMoney.Text = "Bank: " + bank.ToString();
             labelWorkers.Text = "Workers: " + automaticParking.workers;
 
             chart1.Series[0].Points.Clear();
-            chart1.Series[0].Points.AddXY(0, automaticParking.workers);
+            chart1.Series[0].Points.AddXY(curday, automaticParking.workers);
 
             chart1.Series[1].Points.Clear();
-            chart1.Series[1].Points.AddXY(0, income);
+            chart1.Series[1].Points.AddXY(curday, income);
         }
 
         private void EndButton_Click(object sender, EventArgs e)

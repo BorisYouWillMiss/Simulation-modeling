@@ -4,7 +4,7 @@ public class ParkingPlace
 {
     public int[] SimulateDay(int hourPrice, int feeSize, int VP, int clients)
     {
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
         int TotalCharge = 0;
 
         int[] CIV = new int[4];
@@ -15,6 +15,7 @@ public class ParkingPlace
         for (int i = 0; (i < clients) && (hours > 0); i++)
         {
             if (random.Next(100)+1 > i*10) { // Client rough intersection chance
+                //Add 24 hours validation
                 int clientHours = (random.Next(12) + 1);
                 if (random.Next(100) + 1 > VP)
                 {

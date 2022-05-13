@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Random8.Properties
+namespace RandomEventsLab8.Properties
 {
 
 

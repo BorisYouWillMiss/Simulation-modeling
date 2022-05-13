@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticParkingSystem", "AutomaticParkingSystem\AutomaticParkingSystem.csproj", "{AF0B1C26-3311-4B63-9C5E-32D5FFBBE621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Random8", "Random8\Random8.csproj", "{748580DA-C45F-4C72-A454-3691C9FCE3C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomEventsLab8", "RandomEventsLab8\RandomEventsLab8.csproj", "{EFBFF2F0-FEB2-49ED-A0CB-73310D56C7B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{AF0B1C26-3311-4B63-9C5E-32D5FFBBE621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF0B1C26-3311-4B63-9C5E-32D5FFBBE621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF0B1C26-3311-4B63-9C5E-32D5FFBBE621}.Release|Any CPU.Build.0 = Release|Any CPU
-		{748580DA-C45F-4C72-A454-3691C9FCE3C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{748580DA-C45F-4C72-A454-3691C9FCE3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{748580DA-C45F-4C72-A454-3691C9FCE3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{748580DA-C45F-4C72-A454-3691C9FCE3C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBFF2F0-FEB2-49ED-A0CB-73310D56C7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBFF2F0-FEB2-49ED-A0CB-73310D56C7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBFF2F0-FEB2-49ED-A0CB-73310D56C7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBFF2F0-FEB2-49ED-A0CB-73310D56C7B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomEventsLab8", "RandomE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomEventsLab9", "RandomEventsLab9\RandomEventsLab9.csproj", "{090D17F7-FCB6-4D78-8D6B-EB45B3177C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomEventsLab10", "RandomEventsLab10\RandomEventsLab10.csproj", "{1D584D4F-B23F-4136-A291-C74962B22499}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{090D17F7-FCB6-4D78-8D6B-EB45B3177C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{090D17F7-FCB6-4D78-8D6B-EB45B3177C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{090D17F7-FCB6-4D78-8D6B-EB45B3177C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D584D4F-B23F-4136-A291-C74962B22499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D584D4F-B23F-4136-A291-C74962B22499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D584D4F-B23F-4136-A291-C74962B22499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D584D4F-B23F-4136-A291-C74962B22499}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

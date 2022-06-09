@@ -25,7 +25,7 @@ namespace GeometricBrownianMotionLab13
         const double k = 0.05;
         const double drift = 0.005;
         const double volatility = 0.05;
-        double rateEuro, rateDollar, wiener;
+        double rateEuro, rateDollar;
         double BoxMuller = 0;
         int days = 0;
         Random random = new Random();
@@ -57,7 +57,6 @@ namespace GeometricBrownianMotionLab13
             }
             else
             {
-                wiener = 0;
                 rateEuro = (double)editEuro.Value;
                 rateDollar = (double)editDollar.Value;
                 //days = (int)editDays.Value;

@@ -36,37 +36,78 @@ namespace AgentModelingLab14
             }
         }
 
-        int[] timeOfDayForLabdas = new int[] { 6, 12, 18, 24};
-        float[] lambdas = new float[] { 0f, 1f, 1.5f,  0.35f};
+        int[] timeOfDayForLambdas = new int[] { 6, 6, 6, 6};
+        float[] lambdas = new float[] { 0.45f, 1.15f, 1.5f,  0.75f};
         float currentTimeOfDay = 0;
         float currentDay = 0;
+
+        int overallClients = 0;
 
         public bool SimulateClientArrivalPPP()
         {
             float curLambda = 0f;
             //Finding lambda for time of day
             int k = 0;
-            float currentTime = currentTimeOfDay;
-            while(currentTime >=0)
+            float currentTimeDay = currentTimeOfDay;
+            while(currentTimeDay >= 0)
             {
-                currentTime -= timeOfDayForLabdas[k];
-                if (currentTime < 0) break;
+                currentTimeDay -= timeOfDayForLambdas[k];
+                if (currentTimeDay < 0) break;
                 else k++;
             }
             curLambda = lambdas[k];
 
-            currentTime = currentTimeOfDay;
+            currentTimeDay = currentTimeOfDay;
 
-            //New possible time for arrival
-            float newTimeofDayArrival = currentTimeOfDay + (-(float)Math.Log(rand.NextDouble()) / curLambda);
-            //newTimeofDayArrival = newTimeofDayArrival 
+            while (true)
+            {
+                //New possible time for arrival (newTimeOfDayArrival can be > 24 (for day counting purposes))
+                float newTimeOfDayArrival = currentTimeOfDay + (-(float)Math.Log(rand.NextDouble()) / curLambda);
+                float hourOfArrival = newTimeOfDayArrival;
+                if(hourOfArrival > 24) hourOfArrival -= 24;
+                    
 
-            return true;///
+                int lambdaint = (int)(curLambda * 100);
+
+                float u = 0f;
+                u = (float)((int)(rand.NextDouble() * (lambdaint + 1))) / 100f;
+
+                //lambda for new time
+                k = 0;
+                currentTimeDay = hourOfArrival;
+                while (currentTimeDay >= 0)
+                {
+                    currentTimeDay -= timeOfDayForLambdas[k];
+                    if (currentTimeDay < 0) break;
+                    else k++;
+                }
+                float newLambda = lambdas[k];
+
+                if (newLambda >= u)
+                {
+                    //Lets gooooo
+                    float timeHoursDif = Math.Abs(hourOfArrival - currentTimeOfDay); //0.5hour - 23.5hour (should be 1 hour dif) (reality = 23hours)
+                    if (hourOfArrival < currentTimeOfDay)
+                    {
+                        float first = Math.Abs(24 - currentTimeOfDay);
+                        timeHoursDif = Math.Abs(hourOfArrival + first);
+                    }
+
+                    currentTimeOfDay = hourOfArrival;
+
+                    currentDay += timeHoursDif / 24f;
+                    overallClients++;
+                    return true;
+                }
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             SimulateClientArrivalPPP();
+            lbAllClients.Text = "Всего клиентов пришло: " + overallClients.ToString();
+            lbLastClientTime.Text = "Время прихода последнего клиента (день): " + currentDay.ToString();
+            lbCurrentHour.Text = "Текущее время (час): " + currentTimeOfDay.ToString();
         }
     }
 }

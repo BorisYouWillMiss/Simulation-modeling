@@ -36,20 +36,21 @@
             this.lbAllClients = new System.Windows.Forms.Label();
             this.lbLastClientTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbCurrentHour = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.editN)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer
             // 
-            this.timer.Interval = 200;
+            this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.startButton.Location = new System.Drawing.Point(13, 85);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startButton.Margin = new System.Windows.Forms.Padding(2);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(94, 39);
             this.startButton.TabIndex = 0;
@@ -72,7 +73,7 @@
             // 
             this.editN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.editN.Location = new System.Drawing.Point(33, 6);
-            this.editN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editN.Margin = new System.Windows.Forms.Padding(2);
             this.editN.Name = "editN";
             this.editN.Size = new System.Drawing.Size(76, 26);
             this.editN.TabIndex = 4;
@@ -98,12 +99,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.lbCurrentHour);
             this.panel1.Controls.Add(this.lbAllClients);
             this.panel1.Controls.Add(this.lbLastClientTime);
             this.panel1.Location = new System.Drawing.Point(12, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(265, 52);
+            this.panel1.Size = new System.Drawing.Size(265, 67);
             this.panel1.TabIndex = 7;
+            // 
+            // lbCurrentHour
+            // 
+            this.lbCurrentHour.AutoSize = true;
+            this.lbCurrentHour.Location = new System.Drawing.Point(3, 39);
+            this.lbCurrentHour.Name = "lbCurrentHour";
+            this.lbCurrentHour.Size = new System.Drawing.Size(116, 13);
+            this.lbCurrentHour.TabIndex = 7;
+            this.lbCurrentHour.Text = "Текущее время (час):";
             // 
             // Form1
             // 
@@ -114,7 +125,7 @@
             this.Controls.Add(this.editN);
             this.Controls.Add(this.labelN);
             this.Controls.Add(this.startButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.editN)).EndInit();
@@ -134,6 +145,7 @@
         private System.Windows.Forms.Label lbAllClients;
         private System.Windows.Forms.Label lbLastClientTime;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbCurrentHour;
     }
 }
 

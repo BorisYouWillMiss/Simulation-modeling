@@ -106,8 +106,8 @@ namespace AgentModelingLab14
         {
             SimulateClientArrivalPPP();
             lbAllClients.Text = "Всего клиентов пришло: " + overallClients.ToString();
-            lbLastClientTime.Text = "Время прихода последнего клиента (день): " + currentDay.ToString();
-            lbCurrentHour.Text = "Текущее время (час): " + currentTimeOfDay.ToString();
+            lbLastClientTime.Text = "Время прихода последнего клиента (день): " + String.Format("{0:N3}", currentDay);
+            lbCurrentHour.Text = "Текущее время (час): " + String.Format("{0:N3}", currentTimeOfDay);
         }
     }
 }

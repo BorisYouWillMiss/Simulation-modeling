@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.editExRateDollar = new System.Windows.Forms.NumericUpDown();
             this.labelDollar = new System.Windows.Forms.Label();
@@ -59,17 +59,19 @@
             this.panel1.Controls.Add(this.labelDays);
             this.panel1.Controls.Add(this.labelIP);
             this.panel1.Controls.Add(this.editExRateEuro);
-            this.panel1.Location = new System.Drawing.Point(4, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 102);
+            this.panel1.Size = new System.Drawing.Size(594, 83);
             this.panel1.TabIndex = 0;
             // 
             // editExRateDollar
             // 
             this.editExRateDollar.DecimalPlaces = 2;
-            this.editExRateDollar.Location = new System.Drawing.Point(160, 39);
+            this.editExRateDollar.Location = new System.Drawing.Point(120, 32);
+            this.editExRateDollar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editExRateDollar.Name = "editExRateDollar";
-            this.editExRateDollar.Size = new System.Drawing.Size(120, 22);
+            this.editExRateDollar.Size = new System.Drawing.Size(90, 20);
             this.editExRateDollar.TabIndex = 6;
             this.editExRateDollar.Value = new decimal(new int[] {
             7744,
@@ -80,17 +82,19 @@
             // labelDollar
             // 
             this.labelDollar.AutoSize = true;
-            this.labelDollar.Location = new System.Drawing.Point(52, 41);
+            this.labelDollar.Location = new System.Drawing.Point(39, 33);
+            this.labelDollar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDollar.Name = "labelDollar";
-            this.labelDollar.Size = new System.Drawing.Size(110, 16);
+            this.labelDollar.Size = new System.Drawing.Size(103, 15);
             this.labelDollar.TabIndex = 5;
             this.labelDollar.Text = "Dollar Initial Price";
             // 
             // buttonPredict
             // 
-            this.buttonPredict.Location = new System.Drawing.Point(299, 9);
+            this.buttonPredict.Location = new System.Drawing.Point(224, 7);
+            this.buttonPredict.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPredict.Name = "buttonPredict";
-            this.buttonPredict.Size = new System.Drawing.Size(92, 79);
+            this.buttonPredict.Size = new System.Drawing.Size(69, 64);
             this.buttonPredict.TabIndex = 4;
             this.buttonPredict.Text = "Predict";
             this.buttonPredict.UseVisualStyleBackColor = true;
@@ -98,9 +102,10 @@
             // 
             // editDays
             // 
-            this.editDays.Location = new System.Drawing.Point(160, 66);
+            this.editDays.Location = new System.Drawing.Point(120, 54);
+            this.editDays.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editDays.Name = "editDays";
-            this.editDays.Size = new System.Drawing.Size(120, 22);
+            this.editDays.Size = new System.Drawing.Size(90, 20);
             this.editDays.TabIndex = 3;
             this.editDays.Value = new decimal(new int[] {
             10,
@@ -112,9 +117,10 @@
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(115, 68);
+            this.labelDays.Location = new System.Drawing.Point(86, 55);
+            this.labelDays.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDays.Name = "labelDays";
-            this.labelDays.Size = new System.Drawing.Size(39, 16);
+            this.labelDays.Size = new System.Drawing.Size(34, 15);
             this.labelDays.TabIndex = 2;
             this.labelDays.Text = "Days";
             this.labelDays.Visible = false;
@@ -122,18 +128,20 @@
             // labelIP
             // 
             this.labelIP.AutoSize = true;
-            this.labelIP.Location = new System.Drawing.Point(52, 11);
+            this.labelIP.Location = new System.Drawing.Point(39, 9);
+            this.labelIP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIP.Name = "labelIP";
-            this.labelIP.Size = new System.Drawing.Size(102, 16);
+            this.labelIP.Size = new System.Drawing.Size(96, 15);
             this.labelIP.TabIndex = 1;
             this.labelIP.Text = "Euro Initial Price";
             // 
             // editExRateEuro
             // 
             this.editExRateEuro.DecimalPlaces = 2;
-            this.editExRateEuro.Location = new System.Drawing.Point(160, 9);
+            this.editExRateEuro.Location = new System.Drawing.Point(120, 7);
+            this.editExRateEuro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editExRateEuro.Name = "editExRateEuro";
-            this.editExRateEuro.Size = new System.Drawing.Size(120, 22);
+            this.editExRateEuro.Size = new System.Drawing.Size(90, 20);
             this.editExRateEuro.TabIndex = 0;
             this.editExRateEuro.Value = new decimal(new int[] {
             8763,
@@ -143,33 +151,34 @@
             // 
             // chartLines
             // 
-            chartArea3.AxisX.Minimum = 0D;
-            chartArea3.AxisY.Minimum = 60D;
-            chartArea3.Name = "ChartArea1";
-            this.chartLines.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartLines.Legends.Add(legend3);
-            this.chartLines.Location = new System.Drawing.Point(4, 111);
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisY.Minimum = 60D;
+            chartArea1.Name = "ChartArea1";
+            this.chartLines.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartLines.Legends.Add(legend1);
+            this.chartLines.Location = new System.Drawing.Point(3, 90);
+            this.chartLines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartLines.Name = "chartLines";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series5.IsValueShownAsLabel = true;
-            series5.LabelFormat = "C";
-            series5.Legend = "Legend1";
-            series5.Name = "Euro";
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.Red;
-            series6.IsValueShownAsLabel = true;
-            series6.LabelFormat = "C";
-            series6.Legend = "Legend1";
-            series6.Name = "Dollar";
-            this.chartLines.Series.Add(series5);
-            this.chartLines.Series.Add(series6);
-            this.chartLines.Size = new System.Drawing.Size(792, 336);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series1.IsValueShownAsLabel = true;
+            series1.LabelFormat = "C";
+            series1.Legend = "Legend1";
+            series1.Name = "Euro";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Red;
+            series2.IsValueShownAsLabel = true;
+            series2.LabelFormat = "C";
+            series2.Legend = "Legend1";
+            series2.Name = "Dollar";
+            this.chartLines.Series.Add(series1);
+            this.chartLines.Series.Add(series2);
+            this.chartLines.Size = new System.Drawing.Size(594, 273);
             this.chartLines.TabIndex = 1;
             this.chartLines.Text = "chart1";
             // 
@@ -180,11 +189,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.chartLines);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

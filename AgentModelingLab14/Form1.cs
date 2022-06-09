@@ -16,5 +16,22 @@ namespace AgentModelingLab14
         {
             InitializeComponent();
         }
+
+        // 1. Client arrival
+        // 2. End of service
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            if (startButton.Text == "Start")
+            {
+                startButton.Text = "Stop";
+                timer.Start();
+            }
+            else if (startButton.Text == "Stop")
+            {
+                startButton.Text = "Start";
+                timer.Stop();
+            }
+        }
     }
 }
